@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8772BF44-936B-4023-8A4F-F35E2BBC4F06}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{5B2A6BC8-37F6-405D-B682-6B49E4BA5BFD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FFCG.Garage</RootNamespace>
-    <AssemblyName>FFCG.Garage</AssemblyName>
+    <RootNamespace>FFCG.Garage.ConsoleRunner</RootNamespace>
+    <AssemblyName>FFCG.Garage.ConsoleRunner</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -20,14 +22,17 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -39,22 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="Checkout\CheckoutService.cs" />
-    <Compile Include="Checkout\DefaultTimeService.cs" />
-    <Compile Include="Checkout\ICheckoutService.cs" />
-    <Compile Include="Checkout\Invoice.cs" />
-    <Compile Include="Pricing\PriceRules\IParkingPriceRule.cs" />
-    <Compile Include="Pricing\IPriceCalculator.cs" />
-    <Compile Include="Checkout\ITimeService.cs" />
-    <Compile Include="Pricing\PriceRules\OneHourPriceRule.cs" />
-    <Compile Include="Pricing\PriceCalculator.cs" />
-    <Compile Include="Pricing\PriceRules\ThreeOrMoreHoursPriceRule.cs" />
-    <Compile Include="Pricing\PriceRules\TwoHourPriceRule.cs" />
-    <Compile Include="Garage.cs" />
-    <Compile Include="ParkingReceipt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFCG.Garage\FFCG.Garage.csproj">
+      <Project>{8772bf44-936b-4023-8a4f-f35e2bbc4f06}</Project>
+      <Name>FFCG.Garage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.Garage", "FFCG.Garage\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.Garage.Tests", "FFCG.Garage.Tests\FFCG.Garage.Tests.csproj", "{79A28368-89A6-4794-95BA-D88B226F66CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFCG.Garage.ConsoleRunner", "FFCG.Garage.Console\FFCG.Garage.ConsoleRunner.csproj", "{5B2A6BC8-37F6-405D-B682-6B49E4BA5BFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{79A28368-89A6-4794-95BA-D88B226F66CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79A28368-89A6-4794-95BA-D88B226F66CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79A28368-89A6-4794-95BA-D88B226F66CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B2A6BC8-37F6-405D-B682-6B49E4BA5BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B2A6BC8-37F6-405D-B682-6B49E4BA5BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B2A6BC8-37F6-405D-B682-6B49E4BA5BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B2A6BC8-37F6-405D-B682-6B49E4BA5BFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

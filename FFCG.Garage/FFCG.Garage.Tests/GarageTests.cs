@@ -1,8 +1,12 @@
 ﻿namespace FFCG.Garage.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
+    using Checkout;
     using NUnit.Framework;
+    using Pricing;
+    using Pricing.PriceRules;
 
     [TestFixture]
     public class GarageTests
@@ -12,13 +16,13 @@
         [SetUp]
         public void SetUp()
         {
-            _garage = new Garage();
+            var priceCalculator = new PriceCalculator(new List<IParkingPriceRule>());
+            _garage = new Garage(new CheckoutService(priceCalculator));
         }
 
         [Test]
         public void ParkCar_should_put_one_car_in_the_garage()
         {
-            //var car = new Car { LicenseNumber = "ABC123" };
             var car = new Car();
             _garage.ParkCar(car);
 
@@ -60,6 +64,28 @@
             ParkingReceipt receipt = _garage.ParkCar(car);
 
             Assert.AreNotEqual(DateTime.MinValue, receipt.TimeParked);
+        }
+
+        [Test]
+        public void Checkout_should_return_a_invoice()
+        {
+            var car = new Car { LicenseNumber = "ABC123" };
+            ParkingReceipt receipt = _garage.ParkCar(car);
+
+            var invoice = _garage.Checkout(receipt);
+
+            Assert.NotNull(invoice);
+        }
+
+        [Test]
+        public void Checkout_should_remove_car_from_garage()
+        {
+            var car = new Car { LicenseNumber = "ABC123" };
+            ParkingReceipt receipt = _garage.ParkCar(car);
+
+            _garage.Checkout(receipt);
+
+            Assert.AreEqual(0, _garage.ParkedCars.Count());
         }
     }
 }

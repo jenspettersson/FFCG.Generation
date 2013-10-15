@@ -8,6 +8,15 @@
     {
         private readonly IEnumerable<IParkingPriceRule> _parkingPriceRules;
         
+        // Creates a default list of Parking Price Rule if the consumer doesn't want to
+        // supply their own rules
+        public PriceCalculator() : this(new List<IParkingPriceRule>
+            {
+                new OneHourPriceRule(),
+                new TwoHourPriceRule(),
+                new ThreeOrMoreHoursPriceRule()
+            }) {}
+
         public PriceCalculator(IEnumerable<IParkingPriceRule> parkingPriceRules)
         {
             _parkingPriceRules = parkingPriceRules;
