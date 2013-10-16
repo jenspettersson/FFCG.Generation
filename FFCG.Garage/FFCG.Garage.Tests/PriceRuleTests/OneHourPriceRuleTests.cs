@@ -1,7 +1,6 @@
 ﻿namespace FFCG.Garage.Tests.PriceRuleTests
 {
     using System;
-    using Checkout;
     using NUnit.Framework;
     using Pricing.PriceRules;
 
@@ -27,12 +26,12 @@
         }
 
         [Test]
-        public void Should_return_correct_amount_for_one_hour_and_minutes()
+        public void Should_only_charge_for_first_hour()
         {
             var oneHourPriceRule = new OneHourPriceRule();
             decimal amount = oneHourPriceRule.Amount(new TimeSpan(1, 30, 0));
 
-            Assert.AreEqual(15m, amount);
+            Assert.AreEqual(10m, amount);
         }
     }
 }

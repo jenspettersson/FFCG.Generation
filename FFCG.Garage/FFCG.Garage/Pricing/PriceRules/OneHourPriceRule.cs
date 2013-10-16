@@ -24,9 +24,6 @@
                 total += CalculateCostForMinutes(time);
             }
 
-            if (time.Hours == 1)
-                total += CalculateCostForMinutes(time);
-
             return total;
         }
 

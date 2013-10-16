@@ -20,9 +20,8 @@
                 total += _rateThisHour;
             }
             
-            if(time.Hours == 2)
+            if(time.Hours < 2)
                 total += (time.Minutes / 60.0m) * _rateThisHour;
-            
             
             return total;
         }

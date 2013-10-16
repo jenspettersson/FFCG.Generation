@@ -17,12 +17,21 @@
         }
 
         [Test]
-        public void Should_return_correct_amount_for_only_minutes()
+        public void Should_charge_for_only_minutes_if_two_hours_hasnt_passed()
+        {
+            var oneHourPriceRule = new TwoHourPriceRule();
+            decimal amount = oneHourPriceRule.Amount(new TimeSpan(1, 30, 0));
+
+            Assert.AreEqual(3m, amount);
+        }
+
+        [Test]
+        public void Should_only_charge_for_second_hour()
         {
             var oneHourPriceRule = new TwoHourPriceRule();
             decimal amount = oneHourPriceRule.Amount(new TimeSpan(2, 30, 0));
 
-            Assert.AreEqual(9m, amount);
+            Assert.AreEqual(6m, amount);
         }
     }
 }

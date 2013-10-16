@@ -19,12 +19,10 @@
             {
                 int remainingHours = time.Hours - 2;
 
-                total += _rateThisHour * remainingHours;
-
-                
+                total += _rateThisHour * remainingHours;   
             }
 
-            if (time.Minutes > 0)
+            if (time.Hours >= 2 && time.Minutes > 0)
                 total += CalculateCostForMinutes(time);
 
             return total;

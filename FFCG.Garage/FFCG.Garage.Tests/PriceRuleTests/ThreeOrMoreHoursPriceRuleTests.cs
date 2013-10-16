@@ -1,7 +1,6 @@
 ﻿namespace FFCG.Garage.Tests.PriceRuleTests
 {
     using System;
-    using Checkout;
     using NUnit.Framework;
     using Pricing.PriceRules;
 
@@ -42,6 +41,15 @@
             decimal amount = threeOrMoreHoursPriceRule.Amount(new TimeSpan(6, 30, 0));
 
             Assert.AreEqual(18m, amount);
+        }
+
+        [Test]
+        public void Should_not_charge_for_minutes_other_than_for_hour_three_or_more()
+        {
+            var threeOrMoreHoursPriceRule = new ThreeOrMoreHoursPriceRule();
+            decimal amount = threeOrMoreHoursPriceRule.Amount(new TimeSpan(1, 30, 0));
+
+            Assert.AreEqual(0m, amount);
         }
     }
 }
