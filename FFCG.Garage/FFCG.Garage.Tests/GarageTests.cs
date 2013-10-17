@@ -17,7 +17,7 @@
         public void SetUp()
         {
             var priceCalculator = new PriceCalculator(new List<IParkingPriceRule>());
-            _garage = new Garage(new CheckoutService(priceCalculator));
+            _garage = new Garage(new CheckoutService(new DefaultTimeService(), priceCalculator));
         }
 
         [Test]

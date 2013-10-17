@@ -15,9 +15,6 @@
             get { return _parkedCars; }
         }
 
-        // Default constructor if the consumer doesn't want to specify it's own checkout service
-        public Garage() : this(new CheckoutService()) { }
-
         public Garage(ICheckoutService checkoutService)
         {
             _checkoutService = checkoutService;

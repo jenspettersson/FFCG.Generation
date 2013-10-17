@@ -8,8 +8,6 @@
         private readonly ITimeService _timeService;
         private readonly IPriceCalculator _priceCalculator;
 
-        public CheckoutService() : this(new DefaultTimeService(), new PriceCalculator()) { }
-        public CheckoutService(IPriceCalculator priceCalculator) : this(new DefaultTimeService(), priceCalculator){ }
         public CheckoutService(ITimeService timeService, IPriceCalculator priceCalculator)
         {
             _timeService = timeService;
